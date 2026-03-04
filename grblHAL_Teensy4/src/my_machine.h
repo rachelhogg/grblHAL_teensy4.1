@@ -27,23 +27,23 @@
 //#define BOARD_E5XMCS_T41
 //#define BOARD_GRBLHAL2000
 //#define BOARD_T40X101
-//#define BOARD_T41U5XBB
+#define BOARD_T41U5XBB
 //#define BOARD_T41U5XBB_SS // For a modified T41U5XBB board, allows spindle sync to be enabled.
 //#define BOARD_T41BB5X_PRO
 //#define BOARD_MY_MACHINE // Add my_machine_map.h before enabling this!
 
 /*
-              Plugin: | ETHERNET¹ | SDCARD¹ | KEYPAD | EEPROM | N_AXIS |
+              Plugin: | ETHERNETï¿½ | SDCARDï¿½ | KEYPAD | EEPROM | N_AXIS |
 ----------------------|-----------|---------|--------|--------|--------|
-BOARD_T40X101         | no        | no      | yes    | yes³   | max 4  |
-BOARD_T41U5XBB        | yes       | yes     | yes    | yes³   | max 5  |
+BOARD_T40X101         | no        | no      | yes    | yesï¿½   | max 4  |
+BOARD_T41U5XBB        | yes       | yes     | yes    | yesï¿½   | max 5  |
 BOARD_T41BB5X_PRO     | yes       | yes     | yes    | yes    | max 5  |
-BOARD_CNC_BOOSTERPACK | yes²      | yes     | yes    | yes    | max 3  |
+BOARD_CNC_BOOSTERPACK | yesï¿½      | yes     | yes    | yes    | max 3  |
 BOARD_GRBLHAL2000     | yes       | yes     | yes    | yes    | max 5  |
 
-¹ Teensy 4.1 only
-² External magjack.
-³ EEPROM is optional and must be added to the board.
+ï¿½ Teensy 4.1 only
+ï¿½ External magjack.
+ï¿½ EEPROM is optional and must be added to the board.
 
 N_AXIS has a default value of 3, edit grbl\config.h to increase.
 
@@ -53,8 +53,15 @@ N_AXIS has a default value of 3, edit grbl\config.h to increase.
 // Uncomment to enable, for some a value > 1 may be assigned, if so the default value is shown.
 
 #ifndef USB_SERIAL_CDC
-#define USB_SERIAL_CDC          2 // 1 for Arduino class library and 2 for PJRC C library. Comment out or set to 0 to use UART communication.
+#define USB_SERIAL_CDC          1 // 1 for Arduino class library and 2 for PJRC C library. Comment out or set to 0 to use UART communication.
 #endif
+
+// Servo ports
+// #define SERVO_PORT  GPIO7
+// #define SERVO_PIN   31
+
+// #define N_SPINDLE               2
+
 //#define USB_SERIAL_WAIT         1 // Wait for USB connection before starting grblHAL.
 //#define BAUD_RATE 		 115200 // UART baud rate
 //#define BLUETOOTH_ENABLE        2 // Set to 2 for HC-05 module. Requires and claims one auxiliary input pin.
@@ -64,9 +71,10 @@ N_AXIS has a default value of 3, edit grbl\config.h to increase.
 // If none are specified the default PWM spindle is instantiated.
 // Spindle definitions can be found in grbl/spindle_control.h.
 // More here https://github.com/grblHAL/Plugins_spindle
-//#define SPINDLE0_ENABLE         SPINDLE_HUANYANG1
-//#define SPINDLE1_ENABLE         SPINDLE_PWM0
-//#define SPINDLE2_ENABLE         SPINDLE_NONE
+// #define SPINDLE0_ENABLE         SPINDLE_HUANYANG1
+// #define SPINDLE1_ENABLE         SPINDLE_PWM0
+// #define SPINDLE2_ENABLE         SPINDLE_PWM2
+
 //#define SPINDLE2_ENABLE         SPINDLE_NONE
 //#define SPINDLE_OFFSET          1 // Uncomment to enable settings for laser spindle XY-offset.
 // **********************
@@ -106,7 +114,7 @@ N_AXIS has a default value of 3, edit grbl\config.h to increase.
 //#define ESTOP_ENABLE            0 // When enabled only real-time report requests will be executed when the reset pin is asserted.
                                     // Note: if left commented out the default setting is determined from COMPATIBILITY_LEVEL.
 //#define RGB_LED_ENABLE          2 // Set to 1 to enable strip length settings $536 and $537, set to 2 to also enable M150 LED strip control.
-//#define PWM_SERVO_ENABLE        1 // Enable M280 PWM servo support, requires at least one PWM capable auxiliary output.
+#define PWM_SERVO_ENABLE        1 // Enable M280 PWM servo support, requires at least one PWM capable auxiliary output.
 //#define BLTOUCH_ENABLE          1 // Enable M401/M402 BLTouch support. Requires and claims one auxiliary PWM servo output.
 //#define EVENTOUT_ENABLE         1 // Enable binding events (triggers) to control auxiliary outputs.
 //#define ESP_AT_ENABLE           1 // Enable support for Telnet communication via UART connected ESP32 running ESP-AT.
