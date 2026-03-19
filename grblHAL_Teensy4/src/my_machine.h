@@ -74,7 +74,9 @@ N_AXIS has a default value of 3, edit grbl\config.h to increase.
 // #define SPINDLE0_ENABLE         SPINDLE_HUANYANG1
 // #define SPINDLE1_ENABLE         SPINDLE_PWM0
 // #define SPINDLE2_ENABLE         SPINDLE_PWM2
-
+#define SPINDLE0_ENABLE         SPINDLE_PWM0
+// #define SPINDLE1_ENABLE         SPINDLE_PWM0
+// #define SPINDLE2_ENABLE         SPINDLE_PWM2
 //#define SPINDLE2_ENABLE         SPINDLE_NONE
 //#define SPINDLE_OFFSET          1 // Uncomment to enable settings for laser spindle XY-offset.
 // **********************
@@ -114,7 +116,7 @@ N_AXIS has a default value of 3, edit grbl\config.h to increase.
 //#define ESTOP_ENABLE            0 // When enabled only real-time report requests will be executed when the reset pin is asserted.
                                     // Note: if left commented out the default setting is determined from COMPATIBILITY_LEVEL.
 //#define RGB_LED_ENABLE          2 // Set to 1 to enable strip length settings $536 and $537, set to 2 to also enable M150 LED strip control.
-#define PWM_SERVO_ENABLE        1 // Enable M280 PWM servo support, requires at least one PWM capable auxiliary output.
+//#define PWM_SERVO_ENABLE        1 // Enable M280 PWM servo support, requires at least one PWM capable auxiliary output.
 //#define BLTOUCH_ENABLE          1 // Enable M401/M402 BLTouch support. Requires and claims one auxiliary PWM servo output.
 //#define EVENTOUT_ENABLE         1 // Enable binding events (triggers) to control auxiliary outputs.
 //#define ESP_AT_ENABLE           1 // Enable support for Telnet communication via UART connected ESP32 running ESP-AT.
